@@ -17,5 +17,16 @@ const fs = require('fs');
 const path = require('path');
 const app = express();
 
+app.use(express.json())
+
+app.get("/", (req, res)=>{
+  res.send("Welcome to our File server");
+})
+
+
+const PORT = 3000;
+app.listen((PORT)=>{
+    console.log(`Server listening in PORT ${PORT}`);
+})
 
 module.exports = app;

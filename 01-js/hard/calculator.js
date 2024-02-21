@@ -16,6 +16,57 @@
   Once you've implemented the logic, test your code by running
 */
 
-class Calculator {}
+class Calculator {
+  result = 0;
+  constructor() {
+    this.result = 0;
+  }
+  add(num) {
+    this.result += num;
+  }
+  subtract(num) {
+    this.result -= num;
+  }
+  multiply(num) {
+    this.result *= num;
+  }
+  divide(num) {
+    try{
+      if (num === 0) {
+      throw new Error("Cannot divide by zero");
+      }
+      this.result /= num;
+    }
+    catch(e){
+      throw new Error(`Error : ${e.message}`)
+    }
+  }
+  clear() {
+    this.result = 0;
+  }
+  getResult() {
+    return this.result;
+  }
+  calculate(exp) {
+    let expWoSpace = exp.split(' ').join('');
+    try{
+      this.result = eval(expWoSpace)
+      if(isNaN(this.result)){
+        throw new Error('Invalid result');
+      }
+    }
+    catch(e){
+      throw new Error(`Invalid Input : ${e.message}`);
+    }
+  }
+}
+
+// let a = new Calculator();
+// a.add(5)
+// console.log(a.getresult())
+// a.add(3)
+// console.log(a.getresult())
+
+// console.log(a.calculate(`10 +   2 *    (   6 - (4 + 1) / 2) + 7`))
 
 module.exports = Calculator;

@@ -5,7 +5,18 @@
 */
 
 function isAnagram(str1, str2) {
-
+      str1 = Array.from(str1)
+      str1 = str1.sort((a,b)=>a.localeCompare(b)).join('')
+      
+      str2 = Array.from(str2)
+      str2 = str2.sort((a,b)=>a.localeCompare(b)).join('')
+      
+      if(str1.toUpperCase() === str2.toUpperCase()){
+        return true;
+      }
+      else{
+        return false;
+      }
 }
 
 module.exports = isAnagram;

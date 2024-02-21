@@ -21,6 +21,11 @@
 
     function updateState(newTodos) {
       // calculate the diff b/w newTodos and oldTodos.
+      console.log(oldTodoState);
+      console.log(newTodos);
+      console.log(oldTodoState.length);
+      console.log(newTodos.length);
+      let diff = newTodos.length - oldTodoState.length
       // More specifically, find out what todos are - 
       // 1. added
       // 2. deleted
@@ -28,6 +33,15 @@
       const added = [];
       const deleted = [];
       const updated = [];
+
+      for(let i=newTodos.length; i>=diff;i--){
+        added.push(newTodos[i-1]);
+      }
+      console.log(added);
+
+      
+
+      
       // calculate these 3 arrays
       // call addTodo, removeTodo, updateTodo functions on each of the
       // elements
